@@ -26,13 +26,10 @@ export default {
     async submitLogin () {
       try {
         const response = await user.login(this.email, this.password)
-        console.log(response)
         const token = response.data.token
         localStorage.setItem('token-access', token)
-        this.$router.push('panel')
       } catch (error) {
         this.msg = 'Não foi possível logar :('
-        console.log(error)
       }
     }
   }
